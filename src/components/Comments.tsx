@@ -11,6 +11,7 @@ const Comments = () => {
 
     // State to store the fetched comments
     const [comments, setComments] = useState<Comment[]>([]);
+    const [message, setMessage] = useState<string>("");
 
     // Function to fetch comments
     const getComments = async () => {
@@ -21,6 +22,26 @@ const Comments = () => {
             console.error("Error fetching comments:", err);
         }
     };
+
+    // Function that will post a comment
+    const postComment = async () => {
+        
+        try{
+
+            const name = "Anonymous";
+        
+            const url = "http://localhost:5000/comments";
+
+            const res = await axios.post(url, {name, message});
+
+            setComments([...comments, res.data]);
+
+            setMessage("");
+
+        } catch (err){
+            console.error("Error posting a new comment :(", err);
+        }
+    }
 
     // Fetch comments on component mount
     useEffect(() => {
@@ -49,18 +70,24 @@ const Comments = () => {
                         )}
                     </div>
                     {/* Input form at the bottom */}
-                    <form className="flex items-center bg-gray-700 p-3 rounded-md">
-                        <input
-                            type="text"
-                            placeholder="Enter message - please be nice!"
-                            className="flex-1 p-2 text-black rounded-md focus:outline-none"
-                        />
+                    <form 
+                    className="flex items-center bg-gray-700 p-1 rounded-md"
+                    onSubmit={(e) => {
+                            e.preventDefault();
+                            postComment(); // Call postComment on form submit
+                        }}
+                    >
+                    
+                    <input
+                        type="text"
+                        placeholder="Enter message - please be nice!"
+                        className="flex-1 text-sm p-2 text-white bg-transparent rounded-md placeholder-opacity-50 placeholder-white focus:outline-none"
+                        value={message} // Controlled input bound to message state
+                        onChange={(e) => setMessage(e.target.value)}
+                    />
                         <button
-                            onClick={(e) => {
-                                e.preventDefault(); // Prevent form submission default behavior
-                                getComments();
-                            }}
-                            className="bg-gray-500 hover:bg-gray-300 text-white font-bold py-2 px-4 w-auto ml-2 rounded"
+                            type="submit"
+                            className="bg-gray-500 text-xs hover:bg-gray-300 text-white font-bold py-2 px-4 w-auto ml-2 rounded"
                         >
                             Send
                         </button>

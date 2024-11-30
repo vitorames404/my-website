@@ -15,7 +15,7 @@ const Projects = () => {
             </div>
             <div className="w-full mt-[20px] flex justify-center items-center">
                 <button className="bg-gray-500 hover:bg-gray-300 text-white font-bold py-2 px-4 border-b-4 border-gray-700 hover:border-gray-500 rounded">
-                    Check on my projects !
+                    Check out my projects !
                 </button>
             </div>
         </div>
