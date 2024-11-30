@@ -56,7 +56,7 @@ const Comments = () => {
                     <p className="text-2xl my-[10px] text-[28px]">Leave a comment!</p>
                 </div>
                 {/* Comment box container */}
-                <div className="bg-gray-800 w-full h-80 p-4 rounded-md flex flex-col justify-between">
+                <div className="bg-gray-800 w-full h-60 p-4 rounded-md flex flex-col justify-between">
                     {/* Comments display area */}
                     <div className="flex-1 overflow-y-auto p-2">
                         {comments.length > 0 ? (
