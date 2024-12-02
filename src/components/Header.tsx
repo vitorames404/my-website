@@ -6,7 +6,7 @@ const Header = () => {
             {/* Wrapper to centralize and set max width */}
             <div className="max-w-lg mx-auto">
                 {/* Intro Message */}
-                <div className="bg-gray-800 py-5 px-10 rounded-md mb-4">
+                <div className="bg-gray-800 py-3 px-10 rounded-md mb-4">
                     <p className="text-white font-medium text-center">
                         Hello, I'm a developer based in New Zealand!
                     </p>
@@ -29,7 +29,7 @@ const Header = () => {
                         <p className=" text-white text-4xl p-1 font-bold rounded-md">
                             Vitor Ames
                         </p>
-                        <p className="text-white text-l mt-2 md:ml-[5px]">
+                        <p className="text-white text-l md:ml-[5px]">
                             Pixel Physicist (Developer / Artist / Technologist)
                         </p>
                     </div>

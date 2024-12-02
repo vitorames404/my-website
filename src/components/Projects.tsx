@@ -6,9 +6,9 @@ const Projects = () => {
             {/* Wrapper to centralize and set max width */}
             <div className="md:max-w-lg max-w-6xl mx-auto text-white">
                 <div>
-                    <p className="text-2xl my-[10px] text-[28px]">My Projects</p>
+                    <p className="text-2xl my-[10px] text-[20px] font-bold">My Projects</p>
                 </div>
-                <div className="h-[3px] rounded-lg my-5 bg-yellow-100" />
+                <div className="h-[3px] rounded-lg mb-4 bg-gray-600" />
                 <div className="text-justify text-[16px]">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras gravida ultricies justo, vitae commodo ante accumsan ut. Sed tempus, leo ac mattis scelerisque, sem mauris facilisis diam, non ullamcorper arcu magna in neque. Proin sem elit, molestie eget lacus non, tincidunt bibendum justo.</p>
                 </div>
