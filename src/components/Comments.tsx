@@ -53,8 +53,9 @@ const Comments = () => {
             {/* Wrapper to centralize and set max width */}
             <div className="md:max-w-lg max-w-6xl mx-auto text-white">
                 <div>
-                    <p className="text-2xl my-[10px] text-[28px]">Leave a comment!</p>
+                    <p className="text-2xl my-[10px] text-[20px] font-bold">Leave a comment!</p>
                 </div>
+                <div className="h-[3px] rounded-lg mb-4 bg-gray-600" />
                 {/* Comment box container */}
                 <div className="bg-gray-800 w-full h-60 p-4 rounded-md flex flex-col justify-between">
                     {/* Comments display area */}

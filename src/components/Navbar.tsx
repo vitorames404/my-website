@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { FiTerminal, FiSend,  FiUser, FiEdit2 } from "react-icons/fi";
+
 
 const Navbar = () => {
 
@@ -11,10 +13,10 @@ const Navbar = () => {
     console.log(isMenuOpen);
 
     return (
-        <nav className="bg-gray-500 p-4">
+        <nav className="bg-gray-900 p-4 md:max-w-screen-md max-w-6xl mx-auto text-white">
             <div className="flex items-center justify-between">
                 {/* Name / Logo */}
-                <div className="text-white text-2xl font-bold"> My Name</div>
+                <div className="text-white text-2xl font-bold"> Vitor Ames</div>
                 
                 <div className="md:hidden">
                     <button className="text-white" onClick={openMenu}>
@@ -32,11 +34,23 @@ const Navbar = () => {
                     </button>
                 </div>
                 
-                <ul className="hidden md:flex space-x-4">
-                    <li><a className="text-white">Bio</a></li>
-                    <li><a className="text-white">Resumé</a></li>
-                    <li><a className="text-white">Portfolio</a></li>
-                    <li><a className="text-white">Contact me!</a></li>
+                <ul className="hidden md:flex font-bold space-x-4">
+                    <li className="flex items-center space-x-2">
+                        <FiTerminal />
+                        <a className="text-white">Portfolio</a>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                        <FiUser />
+                        <a className="text-white">Resumé</a>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                        <FiEdit2 />
+                        <a className="text-white">Bio</a>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                        <FiSend />
+                        <a className="text-white">Contact me</a>
+                    </li>
                 </ul>
             </div>
 

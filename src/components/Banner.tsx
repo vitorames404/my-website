@@ -174,7 +174,7 @@ const Banner: React.FC = () => {
      }, []);
 
     return (
-        <div className="w-screen min-h-10 p-5">
+        <div className="w-screen min-h-10 p-5 my-[35px]">
             {/* Wrapper to centralize and set max width */}
             <div className="max-w-lg mx-auto h-60" id="banner" ref={bannerRef}></div>
         </div>

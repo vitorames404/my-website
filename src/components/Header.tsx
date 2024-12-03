@@ -1,4 +1,5 @@
 import React from 'react';
+import profileImage from '../assets/Untitled.png';
 
 const Header = () => {
     return (
@@ -18,7 +19,7 @@ const Header = () => {
                     {/* Profile Image */}
                     <div className="md:ml-0">
                         <img
-                            src="https://static.wikia.nocookie.net/aooni/images/7/77/Ao_ONI_.jpg/revision/latest/smart/width/250/height/250?cb=20230731235848" // Replace with your image URL
+                            src={profileImage} 
                             alt="Vitor Ames"
                             className="rounded-full border-4 border-white w-24 h-24 object-cover"
                         />
