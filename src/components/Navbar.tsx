@@ -37,13 +37,13 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentPage }) => {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex font-bold space-x-4">
-          <li
+          {/* <li
             className="flex items-center space-x-2 cursor-pointer"
-            onClick={() => setCurrentPage("portfolio")}
+            onClick={() => setCurrentPage("home")}
           >
             <FiTerminal />
             <span>Portfolio</span>
-          </li>
+          </li> */}
           <li
             className="flex items-center space-x-2 cursor-pointer"
             onClick={() => setCurrentPage("resume")}
@@ -53,7 +53,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentPage }) => {
           </li>
           <li
             className="flex items-center space-x-2 cursor-pointer"
-            onClick={() => setCurrentPage("bio")}
+            onClick={() => setCurrentPage("home")}
           >
             <FiEdit2 />
             <span>Bio</span>
@@ -74,11 +74,11 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentPage }) => {
           <li
             className="text-white cursor-pointer"
             onClick={() => {
-              setCurrentPage("portfolio");
+              setCurrentPage("home");
               setMenuOpen(false);
             }}
           >
-            Portfolio
+            Home
           </li>
           <li
             className="text-white cursor-pointer"

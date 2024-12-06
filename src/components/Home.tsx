@@ -16,7 +16,7 @@ const Home  = () => {
                   rel="noopener noreferrer"
                   className="hover:underline hover:text-teal-400"
                 >
-                  @yvitames404
+                  @vitames404
                 </a>
               </li>
       
