@@ -1,13 +1,54 @@
+require("dotenv").config({ path: "./data.env" });
 const Database = require("better-sqlite3");
 const db = new Database("./comments.db");
+const nodemailer = require("nodemailer");
 
 const express = require("express");
 const cors = require("cors");
+const { data } = require("autoprefixer");
 
 const app = express();
 app.use(express.json()); // Use built-in JSON parser
 app.use(cors()); // Allow CORS
 
+/**
+ * Logic for the backend of the HireMe / ContactMe part
+ */
+// Email route
+app.post("/send-email", async(req, res) => {
+    
+    // Use the transporter
+    const{ name, email, message } = req.body;
+
+    // Configure Nodemailer transporter
+    const transporter = nodemailer.createTransport({
+        service: "Gmail",
+        auth:{
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS,
+        }
+    });
+
+    const mailOptions = {
+        from: email,
+        to: process.env.EMAIL_USER, // Use the environment variable for the recipient
+        subject: `Message from ${name}`,
+        text: message,
+    };
+
+    try {
+        await transporter.sendMail(mailOptions);
+        res.status(200).send("Email sent successfully!");
+      } catch (error) {
+        console.error("Error sending email:", error);
+        res.status(500).send("Error sending email");
+    }
+});
+
+
+/**
+ * Backend logic for the commentary part
+ */
 // Get all comments (No body required for GET)
 app.get("/comments", (req, res) => {
     try {
