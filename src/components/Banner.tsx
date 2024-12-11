@@ -25,7 +25,7 @@ const Banner: React.FC = () => {
         // Create the camera that will be used
         const camera = new THREE.PerspectiveCamera(70, bannerRef.current.clientWidth / bannerRef.current.clientHeight, 0.1, 1000);
 
-        camera.position.z = 1;
+        camera.position.z = 0.5;
 
         // Renderer setup
         const renderer = new THREE.WebGLRenderer({alpha: true});
@@ -65,8 +65,7 @@ const Banner: React.FC = () => {
                     object.scale.set(0.4, 0.4, 0.4); 
 
                     object.rotation.z = 0;
-                    object.rotation.y = -3;
-                    object.rotation.x = -1;
+                    object.rotation.y = Math.PI * 2;
 
                     const axesHelper = new THREE.AxesHelper(5); // 5 is the size
                     scene.add(axesHelper);
@@ -131,12 +130,11 @@ const Banner: React.FC = () => {
         const animate = () => {
             requestAnimationFrame(animate);
         
-            // Rotate the object based on mouse movement
-            if (object) {
-                object.rotation.y = -3 + (mouse.x / window.innerWidth) * 3;
-                object.rotation.x = -1.2 + (mouse.y * 2.5) / window.innerHeight;
+            // If the object is not being dragged rotate it by default
+            if(!isDragging && object){
+                object.rotation.y += 0.002;
             }
-        
+
             controls.update(); // Keep OrbitControls updated
             renderer.render(scene, camera); // Render the scene
         };

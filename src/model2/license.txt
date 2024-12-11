@@ -1,0 +1,11 @@
+Model Information:
+* title:	Wooper low-poly
+* source:	https://sketchfab.com/3d-models/wooper-low-poly-97603d14c6f7411cbe14f79383b3d105
+* author:	Survi (https://sketchfab.com/survi_6756)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Wooper low-poly" (https://sketchfab.com/3d-models/wooper-low-poly-97603d14c6f7411cbe14f79383b3d105) by Survi (https://sketchfab.com/survi_6756) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
