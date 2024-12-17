@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import Comments from "./components/Comments";
 import HireMe from "./components/HireMe";
+import Resume from "./components/Resume";
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<string>("home"); // Track the current page
@@ -30,7 +31,7 @@ const App: React.FC = () => {
             exit="exit"
             transition={{ duration: 0.5 }}
           >
-            <Home />
+            <Home setCurrentPage={setCurrentPage}/>
             <Comments />
           </motion.div>
         );
@@ -47,6 +48,19 @@ const App: React.FC = () => {
             <HireMe />
           </motion.div>
         );
+        case "resume":
+          return (
+            <motion.div
+              key="contact" // Unique key for animations
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={{ duration: 0.5 }}
+            >
+              <Resume />
+            </motion.div>
+          );
       default:
         return null;
     }

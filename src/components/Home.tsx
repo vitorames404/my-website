@@ -1,7 +1,11 @@
 import React from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
-const Home  = () => {
+type HomeProps = {
+  setCurrentPage: (page: string) => void;
+};
+
+const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
 
     const SocialLinks = () => {
         return (
@@ -46,17 +50,20 @@ const Home  = () => {
                 </div>
                 <div className="h-[3px] rounded-lg mb-4 bg-gray-600" />
                 <div className="text-justify text-[18px]">
-                    <p>
-                        In a hurry? Check out my <a href="#">resumé!</a>
-                    </p>
+                <p>
+                    In a hurry? Check out my{' '}
+                    <span
+                        onClick={() => setCurrentPage("resume")}
+                        className="cursor-pointer text-teal-400 hover:underline hover:text-teal-300"
+                    >
+                        resumé!
+                    </span>
+                </p>
                     <p className='mt-[10px]'>
 
                         I’m a 22-year-old full-stack developer from Brazil, currently pursuing a Computer Science degree in New Zealand.
 
                         My journey in programming began in 2021 when I started my first Computer Science course. Since then, I’ve been focusing on web development with a full-stack approach, leaning towards back-end development. I have hands-on experience with Python (Django), JavaScript (Node.js, React, Express), and C# (API and back-end development), along with some familiarity with Java.
-                    </p>
-                    <p className='mt-[10px]'> 
-                        Currently, I’m an IT student in New Zealand actively seeking opportunities to kickstart my career as a developer and grow professionally in the country.
                     </p>
                 </div>
                 <div>
