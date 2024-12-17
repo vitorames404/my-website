@@ -43,7 +43,7 @@ const HireMe: React.FC  = () => {
             <div className="md:max-w-lg max-w-6xl mx-auto text-white">
 
                 <div className="p-4 max-w-lg mx-auto">
-                <h1 className="flex text-3xl font-bold mb-4 space-x-2 items-center">
+                <h1 className="flex text-[20px] font-bold mb-4 space-x-2 items-center">
                     <span>Send me a message!</span>
                     {/* <FiSend size={22}/> */}
                 </h1>

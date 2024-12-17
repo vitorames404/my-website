@@ -25,7 +25,7 @@ const Banner: React.FC = () => {
         // Create the camera that will be used
         const camera = new THREE.PerspectiveCamera(70, bannerRef.current.clientWidth / bannerRef.current.clientHeight, 0.1, 1000);
 
-        camera.position.z = 0.5;
+        camera.position.z = 0.7;
 
         // Renderer setup
         const renderer = new THREE.WebGLRenderer({alpha: true});
@@ -67,8 +67,6 @@ const Banner: React.FC = () => {
                     object.rotation.z = 0;
                     object.rotation.y = Math.PI * 2;
 
-                    const axesHelper = new THREE.AxesHelper(5); // 5 is the size
-                    scene.add(axesHelper);
                     scene.add(object);
                 }
             },

@@ -7,7 +7,7 @@ const Header = () => {
             {/* Wrapper to centralize and set max width */}
             <div className="max-w-lg mx-auto">
                 {/* Intro Message */}
-                <div className="bg-gray-800 py-3 px-10 rounded-md mb-4">
+                <div className="bg-gray-800 py-3 px-10 rounded-md mb-12">
                     <p className="text-white font-medium text-center">
                         Hello, I'm a developer based in New Zealand!
                     </p>
