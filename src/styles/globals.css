@@ -5,5 +5,6 @@
 
 /* Custom global styles can go here */
 body {
+    @apply font-sans;
     @apply bg-gray-900 text-gray-800;
 }

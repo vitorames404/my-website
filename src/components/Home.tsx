@@ -46,9 +46,9 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
             {/* Wrapper to centralize and set max width */}
             <div className="md:max-w-lg max-w-6xl mx-auto text-white">
                 <div>
-                    <p className="text-2xl my-[10px] text-[20px] font-bold">About me</p>
+                    <p className="text-2xl mt-[10px] text-[20px] font-nunito font-bold">About me</p>
+                    <div className="h-[3px] rounded-lg mb-4 bg-gray-600 max-w-[90px]" />
                 </div>
-                <div className="h-[3px] rounded-lg mb-4 bg-gray-600" />
                 <div className="text-justify text-[18px]">
                 <p>
                     In a hurry? Check out my{' '}
@@ -67,14 +67,14 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
                     </p>
                 </div>
                 <div>
-                    <p className="text-2xl mt-[30px] text-[20px] font-bold">
+                    <p className="text-2xl mt-[30px] font-nunito text-[20px] font-bold">
                         Check my social media
                     </p>
                     <p>
 
                     </p>
                 </div>
-                <div className="h-[3px] rounded-lg mb-4 bg-gray-600" />
+                <div className="h-[3px] rounded-lg mb-4 bg-gray-600 max-w-[210px]" />
                 <SocialLinks/>
             </div>
         </div>

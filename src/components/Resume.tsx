@@ -10,16 +10,17 @@ const Resume  = () => {
             {/* Wrapper to centralize and set max width */}
             <div className="md:max-w-lg max-w-6xl mx-auto text-white">
                 <div>
-                    <p className="text-2xl my-[10px] text-[20px] font-bold">Resumé</p>
+                    <p className="text-2xl mt-[10px] text-[20px] font-nunito font-bold">Resumé</p>
                 </div>
-                <div className="h-[3px] rounded-lg mb-4 bg-gray-600" />
+                <div className="h-[3px] rounded-lg mb-4 bg-gray-600 max-w-[80px]" />
                 <div>
                 </div>
 
                 {/* Summary */}
                 <div className="flex items-center space-x-2 text-white cursor-pointer">
-                    <p className="text-2xl my-[10px] text-[20px] font-bold">Summary</p>
+                    <p className="text-2xl mt-[10px] text-[18px] font-nunito font-bold">Summary</p>
                 </div>
+                <div className="h-[3px] rounded-lg mb-4 bg-gray-600 max-w-[80px]" />
                 <ul className="list-disc pl-6 space-y-2 text-gray-300">
                     <li>
                         Highly motivated Computer Science student with strong technical and problem-solving skills.
@@ -39,16 +40,17 @@ const Resume  = () => {
 
                 {/* Experience List */}
                 <div className="flex items-center space-x-2 text-white cursor-pointer">
-                    <p className="text-2xl my-[10px] text-[20px] font-bold">I.T Experience</p>
+                    <p className="text-2xl mt-[10px] text-[18px] font-nunito font-bold">I.T Experience</p>
                 </div>
+                <div className="h-[3px] rounded-lg mb-4 bg-gray-600 max-w-[115px]" />
                 <div className="space-y-6">
 
                         {/* Job 1 */}
                         <div>
-                        <h3 className="text-lg text-white font-bold">
+                        <h3 className="text-lg text-white text-[18px] font-nunito font-bold">
                             I.T Support Technician & Trainee Back-end developer | 2021 Nov. - 2022 Nov.
                         </h3>
-                        <p className="text-gray-400 italic mb-2">Angellira Satellite Tracking</p>
+                        <p className="text-gray-400 italic font-nunito mb-2">Angellira Satellite Tracking</p>
                         <p className="text-gray-300">
                             Here I&apos;ve mproved teamwork in technology environments through effective team management
                             strategies. Gained experience in API development with C# and Dapper, enhancing web integration,
@@ -59,10 +61,10 @@ const Resume  = () => {
 
                         {/* Job 2 */}
                         <div>
-                        <h3 className="text-lg text-white font-bold">
+                        <h3 className="text-lg text-[18px] text-white font-nunito font-bold">
                             Low code developer | 2021 Mar. - 2021 Sep.
                         </h3>
-                        <p className="text-gray-400 italic mb-2">Eisenh Software</p>
+                        <p className="text-gray-400 font-nunito italic mb-2">Eisenh Software</p>
                         <p className="text-gray-300">
                             I enhanced database organization and refined web development techniques, 
                             primarily using JavaScript. I utilized the low-code platform Bubble.io for web development 
@@ -73,10 +75,10 @@ const Resume  = () => {
 
                         {/* Job 3 */}
                         <div>
-                        <h3 className="text-lg text-white font-bold">
+                        <h3 className="text-lg text-white font-nunito font-bold">
                             Tutor / Lab. Demonstrator | Jan. 2024 - Present
                         </h3>
-                        <p className="text-gray-400 italic mb-2">
+                        <p className="text-gray-400 font-nunito italic mb-2">
                             University of Waikato | Hamilton, New Zealand
                         </p>
                         <p className="text-gray-300">
@@ -89,8 +91,9 @@ const Resume  = () => {
 
                 {/* Languages */}
                 <div className="flex items-center space-x-2 text-white cursor-pointer">
-                    <p className="text-2xl my-[10px] text-[20px] font-bold">Languages</p>
+                    <p className="text-2xl mt-[10px] text-[18px] font-nunito  font-bold">Languages</p>
                 </div>
+                <div className="h-[3px] rounded-lg mb-4 bg-gray-600 max-w-[90px]" />
                 <div className="flex gap-6">
                 {/* English */}
                 <div className="flex items-center gap-2">
@@ -99,7 +102,7 @@ const Resume  = () => {
                     alt="Canada Flag"
                     className="w-8 h-6"
                 />
-                <span className="text-gray-300 text-lg">English</span>
+                <span className="text-gray-300 font-nunito text-lg">English</span>
                 </div>
 
                 {/* Portuguese */}
@@ -109,15 +112,15 @@ const Resume  = () => {
                     alt="Brazil Flag"
                     className="w-8 h-6"
                 />
-                <span className="text-gray-300 text-lg">Portuguese</span>
+                <span className="text-gray-300 font-nunito text-lg">Portuguese</span>
                 </div>
             </div>
                 {/* Skills */}
                 <div className="flex items-center space-x-2 text-white cursor-pointer">
-                    <p className="text-2xl my-[10px] text-[20px] font-bold">Skills</p>
-                    <AiOutlineBulb />
+                    <p className="text-2xl mt-[10px] text-[18px] font-nunito font-bold">Skills</p>
                 </div>
-                <ul className="list-disc pl-6 space-y-2 text-gray-300">
+                <div className="h-[3px] rounded-lg mb-4 bg-gray-600 max-w-[45px]" />
+                <ul className="list-disc pl-6 font-nunito space-y-2 text-gray-300">
                     <li>
                         C# | .NET
                     </li>
