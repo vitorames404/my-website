@@ -1,7 +1,3 @@
-import React from 'react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-
-import { AiOutlineBulb } from "react-icons/ai";
 
 const Resume  = () => {
 

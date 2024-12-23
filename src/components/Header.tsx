@@ -1,4 +1,3 @@
-import React from 'react';
 import profileImage from '../assets/Untitled.png';
 
 const Header = () => {

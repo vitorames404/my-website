@@ -109,7 +109,7 @@ const Banner: React.FC = () => {
             }
         };
 
-        const onMouseDown = (event: MouseEvent) => {
+        const onMouseDown = (_event: MouseEvent) => {
             // Update the raycaster based on mouse position
             raycaster.setFromCamera(mouse, camera);
 

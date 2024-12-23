@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Projects = () => {
     return (
         <div className="w-screen min-h-10 p-[15px]">
