@@ -28,7 +28,7 @@ const Comments = () => {
     const postComment = async () => {
         try {
             const url = `${BASE_URL}/comments`;
-            const res = await axios.post(url, { name: username || "Anonymous", message });
+            await axios.post(url, { name: username || "Anonymous", message });
 
             setMessage(""); // Limpar o campo de mensagem após postar
         } catch (err) {
