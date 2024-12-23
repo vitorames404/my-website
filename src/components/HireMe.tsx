@@ -38,7 +38,7 @@ const HireMe: React.FC  = () => {
     };
 
     return (
-        <div className="w-screen min-h-10 p-[15px]">
+        <div className="w-screen min-h-10">
             {/* Wrapper to centralize and set max width */}
             <div className="md:max-w-lg max-w-6xl mx-auto text-white">
 
@@ -50,7 +50,7 @@ const HireMe: React.FC  = () => {
                 <div className="h-[3px] rounded-lg mb-4 bg-gray-600 max-w-[190px]" />
                 <form onSubmit={handleSubmit} className="space-y-4 w-full rounded-md flex flex-col justify-between">
                     <div>
-                        <label className="block text-[18px] pb-2 font-nunito font-medium">Name</label>
+                        <label className="block text-[16px] pb-2 font-nunito font-medium">Name</label>
                         <input
                             type="text"
                             name="name"
@@ -61,7 +61,7 @@ const HireMe: React.FC  = () => {
                         />
                     </div>
                     <div>
-                        <label className="block text-[18px] py-2 font-nunito font-medium">Email</label>
+                        <label className="block text-[16px] py-2 font-nunito font-medium">Email</label>
                         <input
                             type="email"
                             name="email"
@@ -72,7 +72,7 @@ const HireMe: React.FC  = () => {
                         />
                     </div>
                     <div>
-                        <label className="block font-medium text-[18px] font-nunito py-2">Message</label>
+                        <label className="block font-medium text-[16px] font-nunito py-2">Message</label>
                         <textarea
                             name="message"
                             value={formData.message}
