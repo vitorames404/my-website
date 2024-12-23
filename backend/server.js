@@ -1,5 +1,5 @@
 // Use dotenv only in development
-require("dotenv").config();
+require("dotenv").config({ path: "./data.env" });
 const mongoose = require("mongoose");
 const nodemailer = require("nodemailer");
 const express = require("express");
@@ -8,6 +8,8 @@ const cors = require("cors");
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+console.log("MONGO_URL:", process.env.MONGO_URL);
 
 // MongoDB Connection
 const mongoURI = process.env.MONGO_URL;

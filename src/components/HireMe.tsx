@@ -7,6 +7,8 @@ const HireMe: React.FC = () => {
     message: "",
   });
 
+  const BASE_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -32,7 +34,7 @@ const HireMe: React.FC = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/send-email", {
+      const response = await fetch(`${BASE_URL}/send-email`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

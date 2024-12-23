@@ -8,13 +8,19 @@ const Comments = () => {
         message: string;
     };
 
+    // Define BASE_URL with fallback
+    const BASE_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+    console.log("BASE_URL:", BASE_URL); // Debug BASE_URL
+    
+
     const [comments, setComments] = useState<Comment[]>([]);
     const [message, setMessage] = useState<string>("");
     const [username, setUsername] = useState<string>("");
 
     const getComments = async () => {
+
         try {
-            const res = await axios.get<Comment[]>("http://localhost:5000/comments");
+            const res = await axios.get<Comment[]>(`${BASE_URL}/comments`);
             setComments(res.data);
         } catch (err) {
             console.error("Error fetching comments:", err);
@@ -23,7 +29,7 @@ const Comments = () => {
 
     const postComment = async () => {
         try {
-            const url = "http://localhost:5000/comments";
+            const url = `${BASE_URL}/comments`;
             const res = await axios.post(url, { name: username || "Anonymous", message });
 
             setComments([...comments, res.data]);
