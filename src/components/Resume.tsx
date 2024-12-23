@@ -10,7 +10,7 @@ const Resume  = () => {
             {/* Wrapper to centralize and set max width */}
             <div className="md:max-w-lg max-w-6xl mx-auto text-white">
                 <div>
-                    <p className="text-2xl mt-[10px] text-[20px] font-nunito font-bold">Resumé</p>
+                    <p className="text-2xl text-[20px] font-nunito font-bold">Resumé</p>
                 </div>
                 <div className="h-[3px] rounded-lg mb-4 bg-gray-600 max-w-[80px]" />
                 <div>
@@ -18,9 +18,8 @@ const Resume  = () => {
 
                 {/* Summary */}
                 <div className="flex items-center space-x-2 text-white cursor-pointer">
-                    <p className="text-2xl mt-[10px] text-[18px] font-nunito font-bold">Summary</p>
+                    <p className="text-2xl text-[18px] font-nunito font-bold">Summary</p>
                 </div>
-                <div className="h-[3px] rounded-lg mb-4 bg-gray-600 max-w-[80px]" />
                 <ul className="list-disc pl-6 space-y-2 text-gray-300">
                     <li>
                         Highly motivated Computer Science student with strong technical and problem-solving skills.
@@ -39,10 +38,9 @@ const Resume  = () => {
                 </ul>
 
                 {/* Experience List */}
-                <div className="flex items-center space-x-2 text-white cursor-pointer">
+                <div className="flex items-center space-x-2 py-2  text-white cursor-pointer">
                     <p className="text-2xl mt-[10px] text-[18px] font-nunito font-bold">I.T Experience</p>
                 </div>
-                <div className="h-[3px] rounded-lg mb-4 bg-gray-600 max-w-[115px]" />
                 <div className="space-y-6">
 
                         {/* Job 1 */}
@@ -90,10 +88,9 @@ const Resume  = () => {
                     </div>
 
                 {/* Languages */}
-                <div className="flex items-center space-x-2 text-white cursor-pointer">
+                <div className="flex items-center space-x-2 py-2  text-white cursor-pointer">
                     <p className="text-2xl mt-[10px] text-[18px] font-nunito  font-bold">Languages</p>
                 </div>
-                <div className="h-[3px] rounded-lg mb-4 bg-gray-600 max-w-[90px]" />
                 <div className="flex gap-6">
                 {/* English */}
                 <div className="flex items-center gap-2">
@@ -102,7 +99,7 @@ const Resume  = () => {
                     alt="Canada Flag"
                     className="w-8 h-6"
                 />
-                <span className="text-gray-300 font-nunito text-lg">English</span>
+                <span className="text-gray-300 font-nunito  text-lg">English</span>
                 </div>
 
                 {/* Portuguese */}
@@ -117,9 +114,8 @@ const Resume  = () => {
             </div>
                 {/* Skills */}
                 <div className="flex items-center space-x-2 text-white cursor-pointer">
-                    <p className="text-2xl mt-[10px] text-[18px] font-nunito font-bold">Skills</p>
+                    <p className="text-2xl mt-[10px] py-2 text-[18px] font-nunito font-bold">Skills</p>
                 </div>
-                <div className="h-[3px] rounded-lg mb-4 bg-gray-600 max-w-[45px]" />
                 <ul className="list-disc pl-6 font-nunito space-y-2 text-gray-300">
                     <li>
                         C# | .NET

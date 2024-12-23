@@ -9,7 +9,7 @@ const Header = () => {
                 {/* Intro Message */}
                 <div className="bg-gray-800 py-3 px-10 rounded-md mb-12">
                     <p className="text-white font-nunito font-medium text-center">
-                        Hello, I'm a developer based in New Zealand!
+                        Hello, I'm a full-stack developer based in New Zealand!
                     </p>
                 </div>
 
