@@ -9,7 +9,14 @@ const WebSocket = require("ws"); // Biblioteca WebSocket
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+
+const corsOptions = {
+  origin: ["https://vitames-website.onrender.com"], // Substitua pelo domínio do seu frontend
+  methods: ["GET", "POST"],
+  credentials: true, // Caso necessário para cookies ou autenticação
+};
+
+app.use(cors(corsOptions));
 
 // MongoDB Connection
 console.log("MONGO_URL:", process.env.MONGO_URL);
@@ -91,7 +98,10 @@ app.get("/comments", async (req, res) => {
 app.post("/comments", async (req, res) => {
   const { name, message } = req.body;
 
+  console.log("Novo comentário recebido:", req.body);
+
   if (!name || !message) {
+    console.error("Erro: Nome ou mensagem ausente!");
     return res.status(400).json({ error: "Name and message are required!" });
   }
 
@@ -99,19 +109,22 @@ app.post("/comments", async (req, res) => {
     const newComment = new Comment({ name, message });
     await newComment.save();
 
-    // Notificar todos os clientes WebSocket sobre o novo comentário
+    console.log("Comentário salvo no banco de dados:", newComment);
+
     wss.clients.forEach((client) => {
       if (client.readyState === WebSocket.OPEN) {
-        client.send(JSON.stringify(newComment)); // Enviar o novo comentário
+        client.send(JSON.stringify(newComment));
+        console.log("Comentário enviado ao cliente via WebSocket:", newComment);
       }
     });
 
     res.json(newComment);
   } catch (error) {
-    console.error("Error adding comment:", error.message);
+    console.error("Erro ao adicionar comentário:", error.message);
     res.status(500).json({ error: "Failed to add comment" });
   }
 });
+
 
 // Configuração do WebSocket
 wss.on("connection", (ws) => {
