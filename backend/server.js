@@ -15,7 +15,8 @@ console.log("MONGO_URL:", process.env.MONGO_URL);
 const mongoURI = process.env.MONGO_URL;
 
 mongoose
-  .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true,   serverSelectionTimeoutMS: 30000, // 30 seconds
+    socketTimeoutMS: 45000  })
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("Error connecting to MongoDB:", err));
 
