@@ -1,7 +1,5 @@
 // Use dotenv only in development
-if (process.env.NODE_ENV !== "production") {
-    require("dotenv").config();
-  }
+require("dotenv").config();
 const mongoose = require("mongoose");
 const nodemailer = require("nodemailer");
 const express = require("express");
