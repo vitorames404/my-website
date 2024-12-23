@@ -1,7 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 
-import Model from '../../public/model/scene.gltf';
-
 // Import three.js
 import * as THREE from 'three';
 
@@ -50,7 +48,7 @@ const Banner: React.FC = () => {
         let object: THREE.Object3D | undefined;
 
         loader.load(
-            Model,
+            '/model/scene.gltf',
             (gltf) => {
                 if (!object) { // Only add the object if it hasn't been added yet
                     object = gltf.scene;
