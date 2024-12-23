@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: my-static-site
+    env: static
+    staticPublishPath: dist
+    routes:
+      - source: /models/.* # Serve all files in the `/models` directory
+        headers:
+          Content-Type: application/octet-stream
