@@ -4,19 +4,24 @@ const mongoose = require("mongoose");
 const nodemailer = require("nodemailer");
 const express = require("express");
 const cors = require("cors");
+const http = require("http"); // Para criar o servidor HTTP
+const WebSocket = require("ws"); // Biblioteca WebSocket
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-console.log("MONGO_URL:", process.env.MONGO_URL);
-
 // MongoDB Connection
+console.log("MONGO_URL:", process.env.MONGO_URL);
 const mongoURI = process.env.MONGO_URL;
 
 mongoose
-  .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true,   serverSelectionTimeoutMS: 30000, // 30 seconds
-    socketTimeoutMS: 45000  })
+  .connect(mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 30000, // 30 seconds
+    socketTimeoutMS: 45000,
+  })
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("Error connecting to MongoDB:", err));
 
@@ -28,11 +33,14 @@ const commentSchema = new mongoose.Schema({
 
 const Comment = mongoose.model("Comment", commentSchema);
 
-// Email Route
+// Criar servidor HTTP e WebSocket
+const server = http.createServer(app);
+const wss = new WebSocket.Server({ server });
+
+// Rota de Email
 app.post("/send-email", async (req, res) => {
   const { name, email, message } = req.body;
 
-  // Validate input
   if (!name || !email || !message) {
     return res.status(400).json({ error: "Name, email, and message are required!" });
   }
@@ -42,7 +50,6 @@ app.post("/send-email", async (req, res) => {
     return res.status(400).json({ error: "Invalid email format!" });
   }
 
-  // Nodemailer configuration
   const transporter = nodemailer.createTransport({
     service: "Gmail",
     auth: {
@@ -52,9 +59,9 @@ app.post("/send-email", async (req, res) => {
   });
 
   const mailOptions = {
-    from: `"${name}" <${process.env.EMAIL_USER}>`, // Gmail forces this to be your authenticated email
+    from: `"${name}" <${process.env.EMAIL_USER}>`,
     to: process.env.EMAIL_USER,
-    replyTo: email, // Allows you to reply directly to the sender
+    replyTo: email,
     subject: `Message from ${name}`,
     text: message,
   };
@@ -68,10 +75,11 @@ app.post("/send-email", async (req, res) => {
   }
 });
 
-// Comments Routes
+// Rota para buscar os comentários
 app.get("/comments", async (req, res) => {
   try {
-    const comments = await Comment.find().sort({ _id: -1 });
+    // Alterado para exibir em ordem crescente (mais antigo primeiro)
+    const comments = await Comment.find().sort({ _id: 1 }); 
     res.json(comments);
   } catch (error) {
     console.error("Error fetching comments:", error.message);
@@ -79,6 +87,7 @@ app.get("/comments", async (req, res) => {
   }
 });
 
+// Rota para postar um comentário
 app.post("/comments", async (req, res) => {
   const { name, message } = req.body;
 
@@ -89,6 +98,14 @@ app.post("/comments", async (req, res) => {
   try {
     const newComment = new Comment({ name, message });
     await newComment.save();
+
+    // Notificar todos os clientes WebSocket sobre o novo comentário
+    wss.clients.forEach((client) => {
+      if (client.readyState === WebSocket.OPEN) {
+        client.send(JSON.stringify(newComment)); // Enviar o novo comentário
+      }
+    });
+
     res.json(newComment);
   } catch (error) {
     console.error("Error adding comment:", error.message);
@@ -96,5 +113,15 @@ app.post("/comments", async (req, res) => {
   }
 });
 
+// Configuração do WebSocket
+wss.on("connection", (ws) => {
+  console.log("Novo cliente conectado ao WebSocket!");
+
+  ws.on("close", () => {
+    console.log("Cliente desconectado do WebSocket");
+  });
+});
+
+// Iniciar o servidor
 const PORT = 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
