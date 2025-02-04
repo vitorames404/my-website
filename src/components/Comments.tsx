@@ -9,59 +9,90 @@ const Comments = () => {
     };
 
     const BASE_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
-    const WS_URL = BASE_URL.replace(/^http/, "ws"); // Converte o URL HTTP para WebSocket
+    const WS_URL = BASE_URL.replace(/^http/, "ws"); // Converts HTTP URL to WebSocket
     const [comments, setComments] = useState<Comment[]>([]);
     const [message, setMessage] = useState<string>("");
     const [username, setUsername] = useState<string>("");
+    const [error, setError] = useState<string | null>(null);
+    const [loading, setLoading] = useState<boolean>(true);
 
-    // Função para buscar os comentários inicialmente
+    // Fetch comments from the backend
     const getComments = async () => {
+        setLoading(true);
+        setError(null);
         try {
             const res = await axios.get<Comment[]>(`${BASE_URL}/comments`);
             setComments(res.data);
         } catch (err) {
             console.error("Error fetching comments:", err);
+            setError("Failed to fetch comments. Please try again later.");
+            if (axios.isAxiosError(err)) {
+                console.error("Axios error details:", err.response?.data || err.message);
+            }
+        } finally {
+            setLoading(false);
         }
     };
 
-    // Função para postar um comentário
+    // Post a new comment
     const postComment = async () => {
+        setError(null);
+        if (!message.trim()) {
+            setError("Message cannot be empty.");
+            return;
+        }
+
         try {
             const url = `${BASE_URL}/comments`;
-            await axios.post(url, { name: username || "Anonymous", message });
+            const res = await axios.post(url, { name: username || "Anonymous", message });
 
-            setMessage(""); // Limpar o campo de mensagem após postar
+            // Update the comments list with the new comment
+            setComments((prevComments) => [...prevComments, res.data]);
+            setMessage(""); // Clear the message input
         } catch (err) {
-            console.error("Error posting a new comment :(", err);
+            console.error("Error posting a new comment:", err);
+            setError("Failed to post the comment. Please try again.");
+            if (axios.isAxiosError(err)) {
+                console.error("Axios error details:", err.response?.data || err.message);
+            }
         }
     };
 
     useEffect(() => {
-        // Buscar os comentários existentes
-        getComments();
+        // Fetch comments and connect to WebSocket
+        const fetchDataAndConnect = async () => {
+            await getComments();
 
-        // Conectar ao WebSocket
-        const ws = new WebSocket(WS_URL);
+            const ws = new WebSocket(WS_URL);
 
-        ws.onmessage = (event) => {
-            const newComment: Comment = JSON.parse(event.data);
-        
-            // Adicionar o novo comentário ao final do array
-            setComments((prevComments) => [...prevComments, newComment]);
-        };
-        
-        ws.onopen = () => {
-            console.log("Conectado ao WebSocket");
+            ws.onmessage = (event) => {
+                try {
+                    const newComment: Comment = JSON.parse(event.data);
+                    setComments((prevComments) => [...prevComments, newComment]);
+                } catch (err) {
+                    console.error("Error parsing WebSocket message:", err);
+                }
+            };
+
+            ws.onopen = () => {
+                console.log("Connected to WebSocket");
+            };
+
+            ws.onclose = () => {
+                console.log("Disconnected from WebSocket");
+            };
+
+            ws.onerror = (err) => {
+                console.error("WebSocket error:", err);
+            };
+
+            return () => {
+                ws.close();
+            };
         };
 
-        ws.onclose = () => {
-            console.log("Desconectado do WebSocket");
-        };
-
-        return () => {
-            ws.close(); // Fechar a conexão ao desmontar o componente
-        };
-    }, []);
+        fetchDataAndConnect();
+    }, [WS_URL]);
 
     return (
         <div className="w-screen min-h-screen px-[15px]">
@@ -83,7 +114,11 @@ const Comments = () => {
 
                 <div className="bg-gray-800 w-full h-60 p-4 rounded-md flex flex-col justify-between">
                     <div className="flex-1 overflow-y-auto px-2">
-                        {comments.length > 0 ? (
+                        {loading ? (
+                            <p className="text-gray-500">Loading comments...</p>
+                        ) : error ? (
+                            <p className="text-red-500">{error}</p>
+                        ) : comments.length > 0 ? (
                             comments.map((comment) => (
                                 <p key={comment.id} className="text-gray-400">
                                     <strong>{comment.name}:</strong> {comment.message}

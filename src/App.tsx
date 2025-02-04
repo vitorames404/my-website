@@ -18,6 +18,8 @@ const App: React.FC = () => {
     exit: { opacity: 0, y: -20 },
   };
 
+  
+
   // Render content dynamically
   const renderContent = () => {
     switch (currentPage) {

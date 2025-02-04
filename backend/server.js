@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-  origin: ["https://vitames-website.onrender.com"], // Substitua pelo domínio do seu frontend
+  origin: ["https://vitorames.onrender.com", "http://localhost:5173/"], // Substitua pelo domínio do seu frontend
   methods: ["GET", "POST"],
   credentials: true, // Caso necessário para cookies ou autenticação
 };
