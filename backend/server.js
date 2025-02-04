@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-  origin: "*", 
+  origin: ["https://vitorames.onrender.com"], 
   methods: ["GET", "POST"],
   credentials: true,
 };
