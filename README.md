@@ -5,6 +5,7 @@ Welcome to my personal website project! This is a dynamic and evolving platform 
 ## Technologies Used
 - **Frontend**: React
 - **Backend**: Node.js with Express.js
+- **Database**: MongoDB
 
 ## Key Features
 - **Interactive CV**: A detailed and visually appealing resume highlighting my education, work experience, and skills.
