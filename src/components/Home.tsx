@@ -20,7 +20,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
                   rel="noopener noreferrer"
                   className="hover:underline hover:text-teal-400"
                 >
-                  @vitames404
+                  @vitorames404
                 </a>
               </li>
       
