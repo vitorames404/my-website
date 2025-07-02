@@ -15,7 +15,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
               <li className="flex items-center space-x-2">
                 <FaGithub className="text-xl" />
                 <a
-                  href="https://github.com/vitames404"
+                  href="https://github.com/vitorames404"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:underline hover:text-teal-400"
