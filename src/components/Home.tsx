@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import Projects from './Projects';
 
 type HomeProps = {
   setCurrentPage: (page: string) => void;
@@ -70,12 +71,14 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
                     <p className="text-2xl mt-[30px] font-nunito text-[20px] font-bold">
                         Check my social media
                     </p>
-                    <p>
-
-                    </p>
                 </div>
                 <div className="h-[3px] rounded-lg mb-4 bg-gray-600 max-w-[210px]" />
                 <SocialLinks/>
+                <p className="text-2xl mt-[30px] font-nunito text-[20px] font-bold">
+                  Check out some of my projects
+                </p>
+                <div className="h-[3px] rounded-lg mb-4 bg-gray-600 max-w-[285px]" />
+                <Projects/>
             </div>
         </div>
     );
