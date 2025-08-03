@@ -1,6 +1,7 @@
 import React from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import loginImage from "../../public/nonogram_login.png";
+import nonogramImage from "/nonogram_image.png";
 
 const Nonogram: React.FC = () => {
   return (
@@ -37,7 +38,7 @@ const Nonogram: React.FC = () => {
         {/* Screenshot */}
         <div className="rounded-xl overflow-hidden shadow-lg">
           <img
-            src="https://private-user-images.githubusercontent.com/82846956/419250354-5980f207-889b-4f1a-a902-20a7d4a53c7c.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTQyMjA3ODQsIm5iZiI6MTc1NDIyMDQ4NCwicGF0aCI6Ii84Mjg0Njk1Ni80MTkyNTAzNTQtNTk4MGYyMDctODg5Yi00ZjFhLWE5MDItMjBhN2Q0YTUzYzdjLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA4MDMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwODAzVDExMjgwNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTY3NWEzNTM2MDg2YTIzYmRjOGM5NTczOGVlN2MwMjFlOGZmYzAwNDA2NmNjZWNjOGIxNDY5NTcwMTQyMTk5Y2QmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.y2UvBLiy0TdPWgzGP1zzRnuluCXVWZvsptfGKOunP7g"
+            src={nonogramImage}
             alt="Nonogram Screenshot"
             className="w-full h-auto"
           />
