@@ -1,7 +1,7 @@
 import React from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import loginImage from "../../public/nonogram_login.png";
-import nonogramImage from "/nonogram_image.png";
+import nonogramImage from "../../public/nonogram_image.png";
 
 const Nonogram: React.FC = () => {
   return (

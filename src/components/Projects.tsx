@@ -1,4 +1,4 @@
-import nonogramImage from "/nonogram_image.png";
+import nonogramImage from "../../public/nonogram_image.png";
 
 type ProjectsProps = {
   setCurrentPage: (page: string) => void;
