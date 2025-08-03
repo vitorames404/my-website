@@ -1,11 +1,13 @@
 /* globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Custom global styles can go here */
+/* Custom global styles */
 body {
-    @apply font-sans;
+    @apply font-nunito;
     @apply bg-gray-900 text-gray-800;
     @apply m-0 overflow-x-hidden;
 }

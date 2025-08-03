@@ -39,7 +39,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentPage }) => {
                 backdrop-blur-md shadow-md"
     >
       <div className="flex items-center justify-between max-w-6xl mx-auto">
-        <div className="text-white text-2xl font-bold">Vitor Ames</div>
+        <div className="text-white text-2xl font-bold cursor-pointer hover:text-teal-400 transition-colors" onClick={() => setCurrentPage("home")}>Vitor Ames</div>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
