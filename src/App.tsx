@@ -8,6 +8,7 @@ import Comments from "./components/Comments";
 import HireMe from "./components/HireMe";
 import Resume from "./components/Resume";
 import Nonogram from "./components/Nonogram";
+import MWS from "./components/MWS";
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<string>("home"); // Track the current page
@@ -76,6 +77,20 @@ const App: React.FC = () => {
             transition={{ duration: 0.5 }}
           >
             <Nonogram/>
+          </motion.div>
+        );
+
+        case "mws":
+        return (
+          <motion.div
+            key="mws"
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.5 }}
+          >
+            <MWS/>
           </motion.div>
         );
 

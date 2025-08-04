@@ -7,7 +7,7 @@ const Header = () => {
             <div className="max-w-lg mx-auto">
                 {/* Intro Message */}
                 <div className="bg-gray-800 py-3 px-10 rounded-md mb-12">
-                    <p className="text-white font-nunito font-medium text-center">
+                    <p className="text-white font-nunito font-bold text-center">
                         Hello, I'm a full-stack developer based in New Zealand!
                     </p>
                 </div>
