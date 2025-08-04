@@ -6,38 +6,56 @@ type ProjectsProps = {
 };
 
 const Projects: React.FC<ProjectsProps> = ({ setCurrentPage }) => {
+ 
+      {/* Reusable image shell */}
+const ImgBox: React.FC<{ src: string; alt: string; objectPosition?: string }> = ({
+  src, alt, objectPosition = "object-top",
+}) => (
+  <div className="relative w-full max-w-[480px] mx-auto aspect-[16/10] overflow-hidden rounded-3xl shadow-2xl">
+    <img
+      src={src}
+      alt={alt}
+      className={`absolute inset-0 h-full w-full object-cover ${objectPosition}`}
+    />
+  </div>
+);  
+ 
     return (
-        <div className="max-w-3xl mx-auto text-white font-nunito">
-            {/* Wrapper to centralize and set max width */}
-            <div className="md:max-w-lg max-w-6xl text=[18px] mx-auto text-white">
-                {/* Image that will show the project I'm talking about*/}
-                <img 
-                className="shadow-2xl rounded-3xl" 
-                onClick={() => setCurrentPage("nonogram")}
-                src={nonogramImage}
-                />
-                <div className="font-bold flex items-center gap-2 mt-[15px] mb-3">
-                    <p className="font-[20px] whitespace-nowrap">NONOGRAM 404</p>
-                    <div className="flex-1 h-[2px] bg-gray-600"></div>
-                </div>
-                <span className="text-justify">This project is a web-based implementation of the Nonogram puzzle game. Players can solve 5x5 Nonogram puzzles, compete with friends, and track their performance through various features. The app is designed to be engaging, competitive, and secure.</span>
-                {/* Image that will show the project I'm talking about*/}
-                <img 
-                className="shadow-2xl object-cover object-top rounded-3xl w-full max-h-[315px] mt-8" 
-                onClick={() => setCurrentPage("mws")}
-                src={mwsImage}
-                />
-                <div className="font-bold flex items-center gap-2 mt-[15px] mb-3">
-                    <p className="font-[20px] whitespace-nowrap">MINIMUM WAGE SPREADER</p>
-                    <div className="flex-1 h-[2px] bg-gray-600"></div>
-                </div>
-                <span className="text-justify">
-                    Game made for the Pirate Software Game Jam in Jan. 2024 with the theme Spread. This is a puzzle game about matching the spreading patterns
-                    asked by the customers, developed in godot using GDScript. 
-                </span>
-            </div>
+    <section className="max-w-6xl mx-auto px-4 text-white font-nunito">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+        {/* ---- Card 1 ---- */}
+        <article className="text-center space-y-3">
+         <ImgBox src={nonogramImage} alt="Nonogram 404" />
+        <div className="h-12 flex items-center justify-center">
+            <h3 className="text-[20px] font-bold text-center text-balance">
+                NONOGRAM 404
+            </h3>
         </div>
-    );
+        <p className="text-[15px] md:text-[16px] leading-7 text-center [hyphens:auto]">
+            A competitive web app where players solve 5×5 Nonogram puzzles, track their stats, and challenge friends.
+        </p> 
+        </article>
+
+        {/* ---- Card 2 ---- */}
+        <article className="text-center space-y-3">
+        <ImgBox src={mwsImage} alt="Nonogram 404" />
+
+        <div className="h-12 flex items-center justify-center">
+               <h3 className="text-[20px] font-bold text-center text-balance">
+                MINIMUM WAGE SPREADER
+            </h3>
+        </div>
+
+        <p className="text-[15px] md:text-[16px] leading-7 text-center [hyphens:auto]">
+            A puzzle game about matching a toast-spreading patterns made for the Pirate Software Game Jam.
+        </p>
+        </article>
+      </div>
+    </section>
+  );
+
+ 
+
 };
 
 export default Projects;

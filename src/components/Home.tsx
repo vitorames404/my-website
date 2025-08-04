@@ -67,18 +67,18 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
                         My journey in programming began in 2021 when I started my first Computer Science course. Since then, I’ve been focusing on web development with a full-stack approach, leaning towards back-end development. I have hands-on experience with Python (Django), JavaScript (Node.js, React, Express), and C# (API and back-end development), along with some familiarity with Java.
                     </p>
                 </div>
-                <p className="text-2xl mt-[30px] font-nunito text-[20px] font-bold">
-                  Check out some of my projects
-                </p>
-                <div className="h-[3px] rounded-lg mb-4 bg-gray-600 max-w-[285px]" />
-                <Projects setCurrentPage={setCurrentPage} />
-                <div>
+                                <div>
                     <p className="text-2xl mt-[30px] font-nunito text-[20px] font-bold">
                         Check my social media
                     </p>
                 </div>
                 <div className="h-[3px] rounded-lg mb-4 bg-gray-600 max-w-[210px]" />
                 <SocialLinks/>
+                <p className="text-2xl mt-[30px] font-nunito text-[20px] font-bold ">
+                  Check out some of my projects
+                </p>
+                <div className="h-[3px] rounded-lg mb-8 bg-gray-600 max-w-[285px] " />
+                <Projects setCurrentPage={setCurrentPage} />  
             </div>
         </div>
     );
