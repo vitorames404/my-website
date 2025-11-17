@@ -1,5 +1,6 @@
 import nonogramImage from "../../public/nonogram_image.png";
 import mwsImage from "../../public/MWS.png";
+import appSImage from "../../public/appsketch.png";
 
 type ProjectsProps = {
   setCurrentPage: (page: string) => void;
@@ -73,6 +74,25 @@ const Projects: React.FC<ProjectsProps> = ({ setCurrentPage }) => {
             A puzzle game about matching a toast-spreading patterns made for the Pirate Software Game Jam.
           </p>
         </article>
+
+        {/* ---- Card 3 ---- */}
+        <article className="text-center space-y-3">
+          <ImgBox
+            src={appSImage}
+            alt="appSketch"
+            objectPosition="object-center"
+            onClick={() => setCurrentPage("appsketch")}
+          />
+          <div className="h-12 flex items-center justify-center">
+            <h3 className="text-[20px] font-bold text-center text-balance">
+              APP SKETCH
+            </h3>
+          </div>
+          <p className="text-[15px] md:text-[16px] leading-7 text-center [hyphens:auto]">
+            An AI-powered app that transforms user text inputs into structured UI prototypes and forms. 
+          </p>
+        </article>
+ 
       </div>
     </section>
   );

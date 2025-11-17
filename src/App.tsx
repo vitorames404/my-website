@@ -9,6 +9,7 @@ import HireMe from "./components/HireMe";
 import Resume from "./components/Resume";
 import Nonogram from "./components/Nonogram";
 import MWS from "./components/MWS";
+import AppSketch from "./components/appSketch.tsx";
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<string>("home"); // Track the current page
@@ -93,6 +94,21 @@ const App: React.FC = () => {
             <MWS/>
           </motion.div>
         );
+
+      case "appsketch":
+        return (
+          <motion.div
+            key="appsketch"
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.5 }}
+          >
+            <AppSketch/>
+          </motion.div>
+        );
+
 
       default:
         return null;
