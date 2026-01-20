@@ -38,59 +38,94 @@ const ImgBox: React.FC<{
 
 const Projects: React.FC<ProjectsProps> = ({ setCurrentPage }) => {
   return (
-    <section className="max-w-6xl mx-auto px-4 text-white font-nunito">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+    <section className="max-w-6xl mx-auto px-4 text-white">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12 items-start">
         {/* ---- Card 1 ---- */}
-        <article className="text-center space-y-3">
-          <ImgBox
-            src={nonogramImage}
-            alt="Nonogram 404"
-            onClick={() => setCurrentPage("nonogram")}
-          />
-          <div className="h-12 flex items-center justify-center">
-            <h3 className="text-[20px] font-bold text-center text-balance">
+        <article className="space-y-4 group hover:transform hover:scale-[1.02] transition-all duration-300">
+          <div className="relative">
+            <ImgBox
+              src={nonogramImage}
+              alt="Nonogram 404"
+              onClick={() => setCurrentPage("nonogram")}
+            />
+            <div className="absolute top-3 right-3 bg-primary-400 bg-opacity-90 px-3 py-1 rounded-full text-xs font-bold">
+              WEB APP
+            </div>
+          </div>
+          <div className="flex items-center justify-between">
+            <h3 className="text-xl font-bold text-primary-400 group-hover:text-primary-300 transition-colors cursor-pointer" onClick={() => setCurrentPage("nonogram")}>
               NONOGRAM 404
             </h3>
+            <svg className="w-5 h-5 text-primary-400 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
           </div>
-          <p className="text-[15px] md:text-[16px] leading-7 text-center [hyphens:auto]">
+          <p className="text-base leading-relaxed text-text-secondary">
             A competitive web app where players solve 5×5 Nonogram puzzles, track their stats, and challenge friends.
           </p>
+          <div className="flex flex-wrap gap-2">
+            <span className="px-2 py-1 bg-background-secondary border border-primary-400 border-opacity-30 rounded text-xs text-primary-400 font-semibold">MERN Stack</span>
+          </div>
         </article>
 
         {/* ---- Card 2 ---- */}
-        <article className="text-center space-y-3">
-          <ImgBox
-            src={mwsImage}
-            alt="Minimum Wage Spreader"
-            objectPosition="object-center"
-            onClick={() => setCurrentPage("mws")}
-          />
-          <div className="h-12 flex items-center justify-center">
-            <h3 className="text-[20px] font-bold text-center text-balance">
+        <article className="space-y-4 group hover:transform hover:scale-[1.02] transition-all duration-300">
+          <div className="relative">
+            <ImgBox
+              src={mwsImage}
+              alt="Minimum Wage Spreader"
+              objectPosition="object-center"
+              onClick={() => setCurrentPage("mws")}
+            />
+            <div className="absolute top-3 right-3 bg-primary-400 bg-opacity-90 px-3 py-1 rounded-full text-xs font-bold">
+              GAME
+            </div>
+          </div>
+          <div className="flex items-center justify-between">
+            <h3 className="text-xl font-bold text-primary-400 group-hover:text-primary-300 transition-colors cursor-pointer" onClick={() => setCurrentPage("mws")}>
               MINIMUM WAGE SPREADER
             </h3>
+            <svg className="w-5 h-5 text-primary-400 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
           </div>
-          <p className="text-[15px] md:text-[16px] leading-7 text-center [hyphens:auto]">
-            A puzzle game about matching a toast-spreading patterns made for the Pirate Software Game Jam.
+          <p className="text-base leading-relaxed text-text-secondary">
+            A puzzle game about matching toast-spreading patterns, built for the Pirate Software Game Jam.
           </p>
+          <div className="flex flex-wrap gap-2">
+            <span className="px-2 py-1 bg-background-secondary border border-primary-400 border-opacity-30 rounded text-xs text-primary-400">Godot</span>
+            <span className="px-2 py-1 bg-background-secondary border border-primary-400 border-opacity-30 rounded text-xs text-primary-400">GDScript</span>
+          </div>
         </article>
 
         {/* ---- Card 3 ---- */}
-        <article className="text-center space-y-3">
-          <ImgBox
-            src={appSImage}
-            alt="appSketch"
-            objectPosition="object-center"
-            onClick={() => setCurrentPage("appsketch")}
-          />
-          <div className="h-12 flex items-center justify-center">
-            <h3 className="text-[20px] font-bold text-center text-balance">
+        <article className="space-y-4 group hover:transform hover:scale-[1.02] transition-all duration-300">
+          <div className="relative">
+            <ImgBox
+              src={appSImage}
+              alt="appSketch"
+              objectPosition="object-center"
+              onClick={() => setCurrentPage("appsketch")}
+            />
+            <div className="absolute top-3 right-3 bg-primary-400 bg-opacity-90 px-3 py-1 rounded-full text-xs font-bold">
+              AI TOOL
+            </div>
+          </div>
+          <div className="flex items-center justify-between">
+            <h3 className="text-xl font-bold text-primary-400 group-hover:text-primary-300 transition-colors cursor-pointer" onClick={() => setCurrentPage("appsketch")}>
               APP SKETCH
             </h3>
+            <svg className="w-5 h-5 text-primary-400 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
           </div>
-          <p className="text-[15px] md:text-[16px] leading-7 text-center [hyphens:auto]">
-            An AI-powered app that transforms user text inputs into structured UI prototypes and forms. 
+          <p className="text-base leading-relaxed text-text-secondary">
+            An AI-powered app that transforms user text inputs into structured UI prototypes and forms.
           </p>
+          <div className="flex flex-wrap gap-2">
+            <span className="px-2 py-1 bg-background-secondary border border-primary-400 border-opacity-30 rounded text-xs text-primary-400 font-semibold">MERN Stack</span>
+            <span className="px-2 py-1 bg-background-secondary border border-primary-400 border-opacity-30 rounded text-xs text-primary-400">OpenRouter</span>
+          </div>
         </article>
  
       </div>

@@ -5,7 +5,7 @@ import genAppS from "../../public/gen-appsketch.png";
 
 const AppSketch: React.FC = () => {
   return (
-    <div className="w-screen min-h-screen p-[15px] bg-gray-900 text-white font-nunito">
+    <div className="w-screen min-h-screen p-[15px] bg-background-primary text-white">
       {/* Match homepage width */}
       <div className="md:max-w-lg max-w-6xl mx-auto space-y-8">
         
@@ -13,14 +13,14 @@ const AppSketch: React.FC = () => {
         <div>
             <div className="flex items-center gap-3 mb-0">
                 <h1 className="text-2xl font-bold mb-0">AppSketch</h1>
-                <span className="px-3 py-1 bg-gray-700 rounded text-sm font-medium">
+                <span className="px-3 py-1 bg-background-tertiary rounded text-sm font-medium">
                 2025
                 </span>
             </div>
         </div>
 
         {/* Description */}
-        <p className="leading-relaxed text-justify">
+        <p className="leading-relaxed text-justify text-text-secondary">
           Created as a week personal project at the last trimester of 2025. AppSketch was created with the proposal
           to create an app that used an AI model to generate a mock UI based on an input from the user. The webapp features use
           of localStorage to track the UI's created by the user, the possibility to generate and edit mock UI's through a simple text input and the possibility
@@ -61,7 +61,7 @@ type InfoLabelProps = {
 const InfoLabel: React.FC<InfoLabelProps> = ({ label, value, link }) => {
   return (
     <div className="flex items-center gap-2">
-      <span className="bg-lime-300 bg-opacity-70 text-white text-xs font-bold px-2 py-1 rounded">
+      <span className="bg-primary-400 text-white text-xs font-bold px-2 py-1 rounded">
         {label}
       </span>
       {link ? (
@@ -69,12 +69,12 @@ const InfoLabel: React.FC<InfoLabelProps> = ({ label, value, link }) => {
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-teal-400"
+          className="inline-flex items-center gap-1 text-primary-400 hover:text-primary-300"
         >
           {value} <FaExternalLinkAlt className="text-xs" />
         </a>
       ) : (
-        <span className="">{value}</span>
+        <span className="text-text-secondary">{value}</span>
       )}
     </div>
   );

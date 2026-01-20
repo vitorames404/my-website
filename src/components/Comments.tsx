@@ -96,41 +96,41 @@ const Comments = () => {
 
     return (
         <div className="w-screen min-h-screen px-[15px]">
-            <div className="md:max-w-lg max-w-6xl mx-auto text-white relative">
-                <div>
-                    <p className="text-2xl mt-[10px] text-[20px] font-nunito font-bold">Leave a comment!</p>
+            <div className="md:max-w-lg max-w-6xl mx-auto text-white">
+                <div className="mb-6">
+                    <p className="text-3xl font-bold">Leave a comment!</p>
+                    <div className="h-[2px] rounded-lg mt-3 mb-6 bg-primary-400 max-w-[120px]" />
                 </div>
-                <div className="h-[3px] rounded-lg mb-4 bg-gray-600 max-w-[168px]" />
 
-                <div className="absolute top-[16px] right-[0px]">
+                <div className="mb-4">
                     <input
                         type="text"
-                        placeholder="Username"
-                        className="text-sm p-2 border-b border-gray-700 bg-gray-800 text-white rounded-t-md placeholder-opacity-50 focus:outline-none"
+                        placeholder="Username (optional)"
+                        className="text-sm p-3 border-b-2 border-primary-400 bg-background-secondary text-white rounded-md placeholder-text-tertiary focus:outline-none focus:border-primary-300 w-full max-w-xs transition"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                     />
                 </div>
 
-                <div className="bg-gray-800 w-full h-60 p-4 rounded-md flex flex-col justify-between">
-                    <div className="flex-1 overflow-y-auto px-2">
+                <div className="bg-background-secondary bg-opacity-80 w-full h-64 p-4 rounded-lg flex flex-col justify-between border border-border-light">
+                    <div className="flex-1 overflow-y-auto px-3 space-y-2">
                         {loading ? (
-                            <p className="text-gray-500">Loading comments...</p>
+                            <p className="text-text-tertiary text-sm">Loading comments...</p>
                         ) : error ? (
-                            <p className="text-red-500">{error}</p>
+                            <p className="text-error text-sm">{error}</p>
                         ) : comments.length > 0 ? (
                             comments.map((comment) => (
-                                <p key={comment.id} className="text-gray-400">
-                                    <strong>{comment.name}:</strong> {comment.message}
+                                <p key={comment.id} className="text-text-secondary text-sm leading-relaxed">
+                                    <span className="font-semibold text-primary-400">{comment.name}:</span> {comment.message}
                                 </p>
                             ))
                         ) : (
-                            <p className="text-gray-500">No comments yet.</p>
+                            <p className="text-text-tertiary text-sm">No comments yet. Be the first!</p>
                         )}
                     </div>
 
                     <form
-                        className="flex font-nun items-center mt-[10px] bg-gray-700 p-0 rounded-md"
+                        className="flex items-center mt-4 bg-background-tertiary p-2 rounded-lg gap-2"
                         onSubmit={(e) => {
                             e.preventDefault();
                             postComment();
@@ -139,13 +139,13 @@ const Comments = () => {
                         <input
                             type="text"
                             placeholder="Enter message - please be nice!"
-                            className="flex-1 text-sm p-2 text-white bg-transparent rounded-md placeholder-opacity-50 placeholder-white focus:outline-none"
+                            className="flex-1 text-sm p-2 text-white bg-transparent rounded placeholder-text-tertiary focus:outline-none"
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}
                         />
                         <button
                             type="submit"
-                            className="bg-gray-500 text-xs hover:bg-gray-300 text-white font-bold py-2 px-4 w-auto ml-2 rounded"
+                            className="bg-accent-500 hover:bg-accent-600 text-white font-semibold py-2 px-4 rounded transition duration-200 text-sm"
                         >
                             Send
                         </button>

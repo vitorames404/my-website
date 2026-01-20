@@ -1,4 +1,4 @@
-import profileImage from '../assets/Untitled.png';
+import profileImage from '../../public/myphoto.jpg';
 
 const Header = () => {
     return (
@@ -6,9 +6,9 @@ const Header = () => {
             {/* Wrapper to centralize and set max width */}
             <div className="max-w-lg mx-auto">
                 {/* Intro Message */}
-                <div className="bg-gray-800 py-3 px-10 rounded-md mb-12">
-                    <p className="text-white font-nunito font-bold text-center">
-                        Hello, I'm a full-stack developer based in New Zealand!
+                <div className="bg-gradient-to-r from-primary-500 to-primary-600 py-4 px-10 rounded-lg mb-12 shadow-lg">
+                    <p className="text-white font-semibold text-center text-lg">
+                        Full-stack Developer | Based in New Zealand
                     </p>
                 </div>
 
@@ -25,12 +25,12 @@ const Header = () => {
                     </div>
 
                     {/* Name and Title Section */}
-                    <div className="flex flex-col md:ml-5">
-                        <p className=" text-white text-4xl p-1 font-bold rounded-md">
+                    <div className="flex flex-col md:ml-6">
+                        <p className="text-white text-4xl font-bold mb-1">
                             Vitor Ames
                         </p>
-                        <p className="text-white text-l md:ml-[5px]">
-                            Pixel Physicist (Developer / Artist / Technologist)
+                        <p className="text-accent-400 text-base font-semibold">
+                            Full-Stack Developer & Creative Builder
                         </p>
                     </div>
                 </div>

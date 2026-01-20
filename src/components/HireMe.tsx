@@ -57,79 +57,79 @@ const HireMe: React.FC = () => {
   };
 
   return (
-    <div className="w-screen min-h-10">
+    <div className="w-screen min-h-10 p-[15px]">
       <div className="md:max-w-lg max-w-6xl mx-auto text-white">
-        <div className="p-4 max-w-lg mx-auto">
-          <h1 className="flex text-[20px] font-bold py-1 font-nunito space-x-2 items-center">
-            <span>Send me a message!</span>
+        <div className="mb-6">
+          <h1 className="text-3xl font-bold">
+            Send me a message!
           </h1>
-          <div className="h-[3px] rounded-lg mb-4 bg-gray-600 max-w-[190px]" />
-          <form
-            onSubmit={handleSubmit}
-            className="space-y-4 w-full rounded-md flex flex-col justify-between"
-          >
-            <div>
-              <label className="block text-[16px] pb-2 font-nunito font-medium">
-                Name
-              </label>
-              <input
-                type="text"
-                placeholder="Frodo Baggins"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full flex-1 text-sm p-2 bg-gray-800 bg-opacity-80 text-white rounded-md placeholder-opacity-50 placeholder-white focus:outline-none"
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-[16px] py-2 font-nunito font-medium">
-                Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                placeholder="frodo@shiremail.me"
-                value={formData.email}
-                onChange={handleChange}
-                className="flex-1 text-sm p-2 text-white bg-gray-800 bg-opacity-80 rounded-md focus:outline-none w-full"
-                required
-              />
-            </div>
-            <div>
-              <label className="block font-medium text-[16px] font-nunito py-2">
-                Message
-              </label>
-              <textarea
-                name="message"
-                value={formData.message}
-                placeholder="We need your wisdom to craft the defenses of Rivendell against the forces of Mordor. Payment: 10 mithril ingots!!!"
-                onChange={handleChange}
-                className="flex-1 w-full text-sm p-2 text-white bg-gray-800 bg-opacity-80 rounded-md placeholder-opacity-50 placeholder-white focus:outline-none"
-                rows={4}
-                required
-              />
-            </div>
-            {/* Confirmation Message */}
-            {isSubmitted && (
-              <p
-                id="confirmationMessage"
-                className="mt-2 text-green-500 font-medium text-center"
-              >
-                Message was sent! Thank you!
-              </p>
-            )}
-            <button
-              type="submit"
-              className={`bg-gray-500 text-sm text-white px-[50px] py-2 rounded mx-auto block hover:bg-gray-400 transition duration-200 ${
-                loading ? "opacity-50 cursor-not-allowed" : ""
-              }`}
-              disabled={loading}
-            >
-              {loading ? "Sending..." : "Send"}
-            </button>
-          </form>
+          <div className="h-[2px] rounded-lg mt-3 mb-6 bg-primary-400 max-w-[150px]" />
         </div>
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-5 w-full"
+        >
+          <div>
+            <label className="block text-base font-semibold pb-2 text-text-secondary">
+              Name
+            </label>
+            <input
+              type="text"
+              placeholder="Your Name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full text-sm p-3 bg-background-secondary text-white rounded-lg placeholder-text-tertiary focus:outline-none focus:ring-2 focus:ring-primary-400 transition"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-base font-semibold pb-2 text-text-secondary">
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              placeholder="your.email@example.com"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full text-sm p-3 text-white bg-background-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-400 transition placeholder-text-tertiary"
+              required
+            />
+          </div>
+          <div>
+            <label className="block font-semibold text-base pb-2 text-text-secondary">
+              Message
+            </label>
+            <textarea
+              name="message"
+              value={formData.message}
+              placeholder="Tell me about your project or opportunity..."
+              onChange={handleChange}
+              className="w-full text-sm p-3 text-white bg-background-secondary rounded-lg placeholder-text-tertiary focus:outline-none focus:ring-2 focus:ring-primary-400 transition"
+              rows={5}
+              required
+            />
+          </div>
+          {/* Confirmation Message */}
+          {isSubmitted && (
+            <p
+              id="confirmationMessage"
+              className="mt-2 text-success font-semibold text-center"
+            >
+              ✓ Message sent successfully! I'll get back to you soon.
+            </p>
+          )}
+          <button
+            type="submit"
+            className={`w-full bg-accent-500 hover:bg-accent-600 text-white font-semibold px-6 py-3 rounded-lg transition duration-200 ${
+              loading ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+            disabled={loading}
+          >
+            {loading ? "Sending..." : "Send Message"}
+          </button>
+        </form>
       </div>
     </div>
   );

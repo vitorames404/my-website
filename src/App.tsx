@@ -10,6 +10,7 @@ import Resume from "./components/Resume";
 import Nonogram from "./components/Nonogram";
 import MWS from "./components/MWS";
 import AppSketch from "./components/appSketch.tsx";
+import AnimatedBackground from "./components/AnimatedBackground";
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<string>("home"); // Track the current page
@@ -117,6 +118,7 @@ const App: React.FC = () => {
 
   return (
     <div>
+      <AnimatedBackground />
       {/* Static layout */}
       <Navbar setCurrentPage={setCurrentPage} />
       <Banner />

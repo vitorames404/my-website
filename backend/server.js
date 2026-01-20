@@ -4,14 +4,19 @@ const mongoose = require("mongoose");
 const nodemailer = require("nodemailer");
 const express = require("express");
 const cors = require("cors");
-const http = require("http"); // Para criar o servidor HTTP
-const WebSocket = require("ws"); // Biblioteca WebSocket
+const http = require("http");
+const WebSocket = require("ws");
+// const Database = require("better-sqlite3");
 
 const app = express();
 app.use(express.json());
 
 const corsOptions = {
-  origin: ["https://vitorames.onrender.com"], 
+  origin: [
+    "https://vitorames.onrender.com",
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+  ],
   methods: ["GET", "POST"],
   credentials: true,
 };
@@ -21,24 +26,33 @@ app.use(cors(corsOptions));
 // MongoDB Connection
 console.log("MONGO_URL:", process.env.MONGO_URL);
 const mongoURI = process.env.MONGO_URL;
+const useSQLite = !mongoURI;
 
-mongoose
-  .connect(mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    serverSelectionTimeoutMS: 30000, // 30 seconds
-    socketTimeoutMS: 45000,
-  })
-  .then(() => console.log("Connected to MongoDB"))
-  .catch((err) => console.error("Error connecting to MongoDB:", err));
+let Comment;
+let sqliteDb;
+let memoryComments = [];
+let memoryNextId = 1;
 
-// MongoDB Schema and Model
-const commentSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  message: { type: String, required: true },
-});
+if (!useSQLite) {
+  mongoose
+    .connect(mongoURI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 30000,
+      socketTimeoutMS: 45000,
+    })
+    .then(() => console.log("Connected to MongoDB"))
+    .catch((err) => console.error("Error connecting to MongoDB:", err));
 
-const Comment = mongoose.model("Comment", commentSchema);
+  const commentSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    message: { type: String, required: true },
+  });
+  Comment = mongoose.model("Comment", commentSchema);
+} else {
+  // In-memory fallback for local development
+  console.log("Using in-memory comments store (no MONGO_URL set)");
+}
 
 // Criar servidor HTTP e WebSocket
 const server = http.createServer(app);
@@ -85,9 +99,12 @@ app.post("/send-email", async (req, res) => {
 // Rota para buscar os comentários
 app.get("/comments", async (req, res) => {
   try {
-    // Alterado para exibir em ordem crescente (mais antigo primeiro)
-    const comments = await Comment.find().sort({ _id: 1 }); 
-    res.json(comments);
+    if (!useSQLite) {
+      const comments = await Comment.find().sort({ _id: 1 });
+      res.json(comments);
+    } else {
+      res.json(memoryComments);
+    }
   } catch (error) {
     console.error("Error fetching comments:", error.message);
     res.status(500).json({ error: "Failed to fetch comments" });
@@ -106,19 +123,23 @@ app.post("/comments", async (req, res) => {
   }
 
   try {
-    const newComment = new Comment({ name, message });
-    await newComment.save();
-
-    console.log("Comentário salvo no banco de dados:", newComment);
+    let saved;
+    if (!useSQLite) {
+      const newComment = new Comment({ name, message });
+      saved = await newComment.save();
+    } else {
+      saved = { id: memoryNextId++, name, message };
+      memoryComments.push(saved);
+    }
 
     wss.clients.forEach((client) => {
       if (client.readyState === WebSocket.OPEN) {
-        client.send(JSON.stringify(newComment));
-        console.log("Comentário enviado ao cliente via WebSocket:", newComment);
+        client.send(JSON.stringify(saved));
+        console.log("Comentário enviado ao cliente via WebSocket:", saved);
       }
     });
 
-    res.json(newComment);
+    res.json(saved);
   } catch (error) {
     console.error("Erro ao adicionar comentário:", error.message);
     res.status(500).json({ error: "Failed to add comment" });

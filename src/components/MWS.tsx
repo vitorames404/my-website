@@ -5,7 +5,7 @@ import mwsGame from "../../public/mws-game-image.png"
 
 const MWS: React.FC = () => {
   return (
-    <div className="w-screen min-h-screen p-[15px] bg-gray-900 text-white font-nunito">
+    <div className="w-screen min-h-screen p-[15px] bg-background-primary text-white">
       {/* Match homepage width */}
       <div className="md:max-w-lg max-w-6xl mx-auto space-y-8">
         
@@ -13,14 +13,14 @@ const MWS: React.FC = () => {
         <div>
             <div className="flex items-center gap-3 mb-0">
                 <h1 className="text-2xl font-bold mb-0">Minimum Wage Spreader</h1>
-                <span className="px-3 py-1 bg-gray-700 rounded text-sm font-medium">
+                <span className="px-3 py-1 bg-background-tertiary rounded text-sm font-medium">
                 2024
                 </span>
             </div>
         </div>
 
         {/* Description */}
-        <p className="leading-relaxed text-justify">
+        <p className="leading-relaxed text-justify text-text-secondary">
             Created for the Pirate Software Game Jam in January 2024, with the theme "Spread", 
             this puzzle game challenges players to replicate unique spreading patterns requested by customers. 
             Each level presents a new combination to figure out, testing both your logic and pattern-recognition skills. 
@@ -64,7 +64,7 @@ type InfoLabelProps = {
 const InfoLabel: React.FC<InfoLabelProps> = ({ label, value, link }) => {
   return (
     <div className="flex items-center gap-2">
-      <span className="bg-lime-300 bg-opacity-70 text-white text-xs font-bold px-2 py-1 rounded">
+      <span className="bg-primary-400 text-white text-xs font-bold px-2 py-1 rounded">
         {label}
       </span>
       {link ? (
@@ -72,12 +72,12 @@ const InfoLabel: React.FC<InfoLabelProps> = ({ label, value, link }) => {
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-teal-400"
+          className="inline-flex items-center gap-1 text-primary-400 hover:text-primary-300"
         >
           {value} <FaExternalLinkAlt className="text-xs" />
         </a>
       ) : (
-        <span className="">{value}</span>
+        <span className="text-text-secondary">{value}</span>
       )}
     </div>
   );

@@ -35,15 +35,15 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentPage }) => {
 
   return (
     <nav
-      className="fixed top-0 left-0 w-full bg-transparent p-4 z-50 
-                backdrop-blur-md shadow-md"
+      className="fixed top-0 left-0 w-full bg-background-primary bg-opacity-95 p-4 z-50 
+                backdrop-blur-md shadow-lg border-b border-primary-500 border-opacity-30"
     >
       <div className="flex items-center justify-between max-w-6xl mx-auto">
-        <div className="text-white text-2xl font-bold cursor-pointer hover:text-teal-400 transition-colors" onClick={() => setCurrentPage("home")}>Vitor Ames</div>
+        <div className="text-white text-2xl font-bold cursor-pointer hover:text-primary-400 transition-colors duration-200" onClick={() => setCurrentPage("home")}>Vitor Ames</div>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
-          <button className="text-white" onClick={openMenu}>
+          <button className="text-white p-2 hover:text-primary-400 transition-colors" onClick={openMenu}>
             <svg
               fill="none"
               stroke="currentColor"
@@ -59,26 +59,26 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentPage }) => {
         </div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex font-bold space-x-4">
+        <ul className="hidden md:flex font-semibold space-x-6 text-base">
           <li
-            className="flex items-center space-x-2 cursor-pointer text-white"
+            className="flex items-center space-x-2 cursor-pointer text-text-secondary hover:text-primary-400 transition-colors duration-200"
             onClick={() => setCurrentPage("resume")}
           >
-            <FiUser />
-            <span>Resumé</span>
+            <FiUser className="text-lg" />
+            <span>Résumé</span>
           </li>
           <li
-            className="flex items-center space-x-2 cursor-pointer text-white"
+            className="flex items-center space-x-2 cursor-pointer text-text-secondary hover:text-primary-400 transition-colors duration-200"
             onClick={() => setCurrentPage("home")}
           >
-            <FiEdit2 />
+            <FiEdit2 className="text-lg" />
             <span>Bio</span>
           </li>
           <li
-            className="flex items-center space-x-2 cursor-pointer text-white"
+            className="flex items-center space-x-2 cursor-pointer text-text-secondary hover:text-primary-400 transition-colors duration-200"
             onClick={() => setCurrentPage("contact")}
           >
-            <FiSend />
+            <FiSend className="text-lg" />
             <span>Contact Me</span>
           </li>
         </ul>
@@ -88,7 +88,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentPage }) => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.ul
-            className="flex flex-col md:hidden space-y-4 mt-4 bg-gray-800 bg-opacity-90 p-4 rounded-lg"
+            className="flex flex-col md:hidden space-y-2 mt-4 bg-background-secondary bg-opacity-95 p-4 rounded-lg border border-primary-500 border-opacity-20"
             variants={menuVariants}
             initial="hidden"
             animate="visible"
@@ -96,18 +96,18 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentPage }) => {
           >
             <motion.li
               variants={itemVariants}
-              className="flex items-center space-x-2 text-white cursor-pointer"
+              className="flex items-center space-x-2 text-text-secondary cursor-pointer p-2 rounded hover:bg-background-tertiary hover:text-primary-400 transition-colors"
               onClick={() => {
                 setCurrentPage("resume");
                 setMenuOpen(false);
               }}
             >
               <FiUser />
-              <span>Resumé</span>
+              <span>Résumé</span>
             </motion.li>
             <motion.li
               variants={itemVariants}
-              className="flex items-center space-x-2 text-white cursor-pointer"
+              className="flex items-center space-x-2 text-text-secondary cursor-pointer p-2 rounded hover:bg-background-tertiary hover:text-primary-400 transition-colors"
               onClick={() => {
                 setCurrentPage("home");
                 setMenuOpen(false);
@@ -118,7 +118,7 @@ const Navbar: React.FC<NavbarProps> = ({ setCurrentPage }) => {
             </motion.li>
             <motion.li
               variants={itemVariants}
-              className="flex items-center space-x-2 text-white cursor-pointer"
+              className="flex items-center space-x-2 text-text-secondary cursor-pointer p-2 rounded hover:bg-background-tertiary hover:text-primary-400 transition-colors"
               onClick={() => {
                 setCurrentPage("contact");
                 setMenuOpen(false);

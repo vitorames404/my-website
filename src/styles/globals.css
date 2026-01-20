@@ -1,5 +1,25 @@
 /* globals.css */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+/* ========== FONT OPTIONS ========== */
+/* Uncomment ONE of the options below to change the font */
+
+/* OPTION 1: Inter - Clean, modern, professional */
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap'); */
+
+/* OPTION 2: Poppins - Geometric, friendly, modern */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap'); */
+
+/* OPTION 3: DM Sans - Ultra-clean, sophisticated (CURRENT) */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
+
+/* OPTION 4: Space Grotesk - Techy, unique, geometric */
+/* @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap'); */
+
+/* OPTION 5: Outfit - Rounded, friendly, approachable */
+/* @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap'); */
+
+/* OPTION 6: Manrope - Elegant, balanced, professional */
+/* @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap'); */
 
 @tailwind base;
 @tailwind components;
@@ -7,7 +27,26 @@
 
 /* Custom global styles */
 body {
-    @apply font-nunito;
-    @apply bg-gray-900 text-gray-800;
+    @apply font-sans;
+    @apply bg-background-primary text-text-secondary;
     @apply m-0 overflow-x-hidden;
+    letter-spacing: -0.01em;
+}
+
+/* Typography improvements */
+h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-bold text-text-primary;
+    letter-spacing: -0.02em;
+}
+
+/* Smooth transitions */
+a, button {
+    @apply transition-all duration-200;
+}
+
+/* Focus states for accessibility */
+input:focus,
+textarea:focus,
+button:focus {
+    @apply outline-none ring-2 ring-primary-400;
 }

@@ -3,127 +3,149 @@ const Resume = () => {
         <div className="w-screen min-h-10 p-[15px]">
             {/* Wrapper to centralize and set max width */}
             <div className="md:max-w-lg max-w-6xl mx-auto text-white">
-                <div>
-                    <p className="text-2xl text-[20px] font-nunito font-bold">Resumé</p>
+                <div className="mb-6">
+                    <p className="text-3xl font-bold">Résumé</p>
+                    <div className="h-[2px] rounded-lg mt-3 bg-primary-400 max-w-[80px]" />
                 </div>
-                <div className="h-[3px] rounded-lg mb-4 bg-gray-600 max-w-[80px]" />
 
                 {/* Summary */}
-                <div className="flex items-center space-x-2 text-white">
-                    <p className="text-2xl text-[18px] font-nunito font-bold">Summary</p>
-                </div>
-                <div className="space-y-4 text-gray-300 text-justify">
-                    <p>Highly motivated Computer Science student with strong technical and problem-solving skills.</p>
-                    <p>Hands-on experience in C# programming, API development, and database management with SQL and Microsoft SQL Server.</p>
-                    <p>Proven customer service expertise through direct client interactions and software issue resolution.</p>
-                    <p>Experience in tutoring Computer Science students and collaborating in diverse technology environments to deliver projects on time.</p>
-                </div>
+                <section className="mb-8">
+                    <h2 className="text-2xl font-bold text-white mb-4">Professional Summary</h2>
+                    <p className="text-text-secondary text-base leading-relaxed">
+                        Full-stack developer with a passion for building scalable web applications. Specialized in backend development with strong technical foundation in multiple programming paradigms. Experienced in tutoring and mentoring junior developers while maintaining hands-on expertise in modern web technologies.
+                    </p>
+                </section>
 
                 {/* Experience List */}
-                <div className="flex items-center space-x-2 py-2 text-white">
-                    <p className="text-2xl mt-[10px] text-[18px] font-nunito font-bold">I.T Experience</p>
-                </div>
-                <div className="space-y-6">
-                    {/* Job 1 */}
-                    <div className="text-justify">
-                        <h3 className="text-lg text-white text-[18px] font-nunito font-bold">
-                            I.T Support Technician & Trainee Back-end developer | 2021 Nov. - 2022 Nov.
-                        </h3>
-                        <p className="text-gray-400 italic font-nunito mb-2">Angellira Satellite Tracking</p>
-                        <p className="text-gray-300">
-                            Here I&apos;ve improved teamwork in technology environments through effective team management
-                            strategies. Gained experience in API development with C# and Dapper, enhancing web integration,
-                            database management, and software development skills. Strengthened customer service by solving
-                            software issues and developed hands-on expertise with SQL and Microsoft SQL Server.
-                        </p>
-                    </div>
+                <section className="mb-8">
+                    <h2 className="text-2xl font-bold text-white mb-6">Professional Experience</h2>
+                    <div className="space-y-6">
+                        {/* Job 1 - Tutor */}
+                        <div className="border-l-2 border-primary-400 pl-4">
+                            <h3 className="text-lg font-bold text-white">
+                                Lab Demonstrator & Tutor
+                            </h3>
+                            <p className="text-accent-400 font-semibold text-sm">University of Waikato | Hamilton, New Zealand</p>
+                            <p className="text-text-tertiary text-sm mb-2">January 2024 - Present</p>
+                            <ul className="text-text-secondary text-base space-y-2 list-disc list-inside">
+                                <li>Tutor and mentor junior students in foundational <span className="text-primary-400 font-semibold">Computer Science</span> and <span className="text-primary-400 font-semibold">Engineering</span> courses, providing comprehensive support for <span className="text-primary-400 font-semibold">programming fundamentals</span> and <span className="text-primary-400 font-semibold">software development</span> concepts</li>
+                                <li>Lead practical lab sessions demonstrating real-world implementations of theoretical concepts, <span className="text-primary-400 font-semibold">debugging techniques</span>, and <span className="text-primary-400 font-semibold">industry best practices</span></li>
+                                <li>Provide personalized guidance on coursework assignments, helping students develop critical <span className="text-primary-400 font-semibold">problem-solving skills</span> and <span className="text-primary-400 font-semibold">computational thinking</span></li>
+                                <li>Assess and evaluate student progress through <span className="text-primary-400 font-semibold">code reviews</span>, offering constructive feedback to improve <span className="text-primary-400 font-semibold">coding standards</span> and <span className="text-primary-400 font-semibold">software design patterns</span></li>
+                                <li>Facilitate <span className="text-primary-400 font-semibold">collaborative learning</span> environments that encourage peer-to-peer knowledge sharing and active participation</li>
+                            </ul>
+                        </div>
 
-                    {/* Job 2 */}
-                    <div className="text-justify">
-                        <h3 className="text-lg text-[18px] text-white font-nunito font-bold">
-                            Low code developer | 2021 Mar. - 2021 Sep.
-                        </h3>
-                        <p className="text-gray-400 font-nunito italic mb-2">Eisenh Software</p>
-                        <p className="text-gray-300">
-                            I enhanced database organization and refined web development techniques, 
-                            primarily using JavaScript. I utilized the low-code platform Bubble.io for web development 
-                            and improved teamwork skills by effectively communicating and collaborating within a small 
-                            team to successfully deliver a project on time.
-                        </p>
-                    </div>
+                        {/* Job 2 - I.T Support */}
+                        <div className="border-l-2 border-primary-400 pl-4">
+                            <h3 className="text-lg font-bold text-white">
+                                I.T Support Technician & Junior Backend Developer
+                            </h3>
+                            <p className="text-accent-400 font-semibold text-sm">Angellira Satellite Tracking | Remote</p>
+                            <p className="text-text-tertiary text-sm mb-2">November 2021 - November 2022 (1 year)</p>
+                            <ul className="text-text-secondary text-base space-y-2 list-disc list-inside">
+                                <li>Architected and developed <span className="text-primary-400 font-semibold">RESTful APIs</span> using <span className="text-primary-400 font-semibold">C#</span> and <span className="text-primary-400 font-semibold">.NET Framework</span>, integrating <span className="text-primary-400 font-semibold">Dapper ORM</span> for efficient database operations and optimized query performance</li>
+                                <li>Designed and implemented <span className="text-primary-400 font-semibold">database schemas</span> using <span className="text-primary-400 font-semibold">SQL Server</span>, ensuring <span className="text-primary-400 font-semibold">data integrity</span>, <span className="text-primary-400 font-semibold">normalization</span>, and <span className="text-primary-400 font-semibold">scalable architecture</span> for satellite tracking systems</li>
+                                <li>Performed comprehensive <span className="text-primary-400 font-semibold">software troubleshooting</span> and <span className="text-primary-400 font-semibold">debugging</span>, identifying root causes of technical issues and deploying timely solutions to minimize system downtime</li>
+                                <li>Provided technical support and training to end-users, creating <span className="text-primary-400 font-semibold">documentation</span> and user guides to improve product adoption and customer satisfaction</li>
+                                <li>Collaborated in <span className="text-primary-400 font-semibold">agile development</span> team environment, participating in <span className="text-primary-400 font-semibold">code reviews</span>, <span className="text-primary-400 font-semibold">sprint planning</span>, and cross-functional feature implementation</li>
+                                <li>Maintained and updated <span className="text-primary-400 font-semibold">legacy systems</span> while implementing new features, ensuring <span className="text-primary-400 font-semibold">backward compatibility</span> and seamless integration with existing infrastructure</li>
+                            </ul>
+                        </div>
 
-                    {/* Job 3 */}
-                    <div className="text-justify">
-                        <h3 className="text-lg text-white font-nunito font-bold">
-                            Tutor / Lab. Demonstrator | Jan. 2024 - Present
-                        </h3>
-                        <p className="text-gray-400 font-nunito italic mb-2">
-                            University of Waikato | Hamilton, New Zealand
-                        </p>
-                        <p className="text-gray-300">
-                            Here I&apos;ve tutored junior students in their first year Engineering and Computer Science 
-                            papers, helping with questions and directing them on how to solve the University assignments 
-                            and tasks.
-                        </p>
+                        {/* Job 3 - Low Code Developer */}
+                        <div className="border-l-2 border-primary-400 pl-4">
+                            <h3 className="text-lg font-bold text-white">
+                                Low Code Developer
+                            </h3>
+                            <p className="text-accent-400 font-semibold text-sm">Eisenh Software | Remote</p>
+                            <p className="text-text-tertiary text-sm mb-2">March 2021 - September 2021 (6 months)</p>
+                            <ul className="text-text-secondary text-base space-y-2 list-disc list-inside">
+                                <li>Developed and deployed <span className="text-primary-400 font-semibold">full-stack web applications</span> using <span className="text-primary-400 font-semibold">Bubble.io</span> low-code platform, translating business requirements into functional prototypes and production-ready solutions</li>
+                                <li>Engineered and optimized <span className="text-primary-400 font-semibold">relational database structures</span>, implementing efficient <span className="text-primary-400 font-semibold">data models</span> and establishing proper relationships to enhance application performance</li>
+                                <li>Implemented custom <span className="text-primary-400 font-semibold">JavaScript</span> workflows and <span className="text-primary-400 font-semibold">API integrations</span> to extend platform capabilities beyond native functionality</li>
+                                <li>Collaborated effectively in a small, fast-paced development team, managing <span className="text-primary-400 font-semibold">multiple concurrent projects</span> while adhering to strict delivery timelines</li>
+                                <li>Conducted <span className="text-primary-400 font-semibold">user acceptance testing</span> and iterative refinements based on client feedback, ensuring alignment with project specifications and stakeholder expectations</li>
+                                <li>Strengthened foundational knowledge in <span className="text-primary-400 font-semibold">JavaScript</span>, <span className="text-primary-400 font-semibold">DOM manipulation</span>, and <span className="text-primary-400 font-semibold">modern web development</span> principles through hands-on project work</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-
-                {/* Languages */}
-                <div className="flex items-center space-x-2 py-2 text-white">
-                    <p className="text-2xl mt-[10px] text-[18px] font-nunito font-bold">Languages</p>
-                </div>
-                <div className="flex gap-6">
-                    {/* English */}
-                    <div className="flex items-center gap-2">
-                        <img
-                            src="https://flagcdn.com/32x24/nz.png"
-                            alt="Canada Flag"
-                            className="w-8 h-6"
-                        />
-                        <span className="text-gray-300 font-nunito text-lg">English</span>
-                    </div>
-
-                    {/* Portuguese */}
-                    <div className="flex items-center gap-2">
-                        <img
-                            src="https://flagcdn.com/32x24/br.png"
-                            alt="Brazil Flag"
-                            className="w-8 h-6"
-                        />
-                        <span className="text-gray-300 font-nunito text-lg">Portuguese</span>
-                    </div>
-                </div>
+                </section>
 
                 {/* Skills */}
-                <div className="flex items-center space-x-2 text-white">
-                    <p className="text-2xl mt-[10px] py-2 text-[18px] font-nunito font-bold">Skills</p>
-                </div>
-                <ul className="list-disc pl-6 font-nunito space-y-2 text-gray-300 text-justify">
-                    <li>
-                        C# | .NET
-                    </li>
-                    <li>
-                        Python
-                    </li>
-                    <li>
-                        Javascript (React.js | Node.js | Express.js)
-                    </li>
-                    <li>
-                        SQL
-                    </li>
-                    <li>
-                        HTML
-                    </li>
-                    <li>
-                        CSS
-                    </li>
-                    <li>
-                        Java
-                    </li>
-                    <li>
-                        Git
-                    </li>
-                </ul>
+                <section className="mb-8">
+                    <h2 className="text-2xl font-bold text-white mb-4">Technical Skills</h2>
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                        <div className="bg-background-secondary bg-opacity-80 rounded-lg p-3 text-center border border-border-light">
+                            <p className="text-primary-400 font-semibold">Backend</p>
+                            <p className="text-text-secondary text-sm">C# • Python • Node.js</p>
+                        </div>
+                        <div className="bg-background-secondary bg-opacity-80 rounded-lg p-3 text-center border border-border-light">
+                            <p className="text-primary-400 font-semibold">Frontend</p>
+                            <p className="text-text-secondary text-sm">React.js • JavaScript • TypeScript</p>
+                        </div>
+                        <div className="bg-background-secondary bg-opacity-80 rounded-lg p-3 text-center border border-border-light">
+                            <p className="text-primary-400 font-semibold">Databases</p>
+                            <p className="text-text-secondary text-sm">SQL • MSSQL • Dapper ORM</p>
+                        </div>
+                        <div className="bg-background-secondary bg-opacity-80 rounded-lg p-3 text-center border border-border-light">
+                            <p className="text-primary-400 font-semibold">Frameworks</p>
+                            <p className="text-text-secondary text-sm">Django • Express.js • .NET</p>
+                        </div>
+                        <div className="bg-background-secondary bg-opacity-80 rounded-lg p-3 text-center border border-border-light">
+                            <p className="text-primary-400 font-semibold">Tools</p>
+                            <p className="text-text-secondary text-sm">Git • Visual Studio • Postman</p>
+                        </div>
+                        <div className="bg-background-secondary bg-opacity-80 rounded-lg p-3 text-center border border-border-light">
+                            <p className="text-primary-400 font-semibold">Languages</p>
+                            <p className="text-text-secondary text-sm">English • Portuguese</p>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Education */}
+                <section className="mb-8">
+                    <h2 className="text-2xl font-bold text-white mb-4">Education</h2>
+                    <div className="border-l-2 border-primary-400 pl-4">
+                        <h3 className="text-lg font-bold text-white">
+                            Bachelor of Computer Science
+                        </h3>
+                        <p className="text-accent-400 font-semibold text-sm">University of Waikato | Hamilton, New Zealand</p>
+                        <p className="text-text-tertiary text-sm">Expected Graduation: 2025</p>
+                    </div>
+                </section>
+
+                {/* Languages */}
+                <section>
+                    <h2 className="text-2xl font-bold text-white mb-4">Languages</h2>
+                    <div className="flex gap-6">
+                        {/* English */}
+                        <div className="flex items-center gap-2">
+                            <img
+                                src="https://flagcdn.com/32x24/nz.png"
+                                alt="New Zealand Flag"
+                                className="w-8 h-6 rounded"
+                            />
+                            <div>
+                                <p className="text-white font-semibold text-sm">English</p>
+                                <p className="text-gray-400 text-xs">Fluent</p>
+                            </div>
+                        </div>
+
+                        {/* Portuguese */}
+                        <div className="flex items-center gap-2">
+                            <img
+                                src="https://flagcdn.com/32x24/br.png"
+                                alt="Brazil Flag"
+                                className="w-8 h-6 rounded"
+                            />
+                            <div>
+                                <p className="text-white font-semibold text-sm">Portuguese</p>
+                                <p className="text-gray-400 text-xs">Native</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     );
